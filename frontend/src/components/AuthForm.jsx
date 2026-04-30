@@ -29,6 +29,10 @@ const AuthForm = ({ mode, onSubmit }) => {
     } catch (err) {
       if (err.response?.data?.message) {
         setError(err.response.data.message);
+      } else if (err.response?.status === 502) {
+        setError("The backend is temporarily unavailable on Railway. Wait a moment, then try again.");
+      } else if (err.response?.status) {
+        setError(`Request failed with status ${err.response.status}. Please try again.`);
       } else if (err.request) {
         setError("Cannot reach the backend API. Please check the Railway backend URL and CORS settings.");
       } else {
