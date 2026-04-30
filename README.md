@@ -107,7 +107,7 @@ For deployed production, use the Railway and Vercel URLs shown below instead of 
 
 1. Push the repo to GitHub.
 2. Create a new Railway project.
-3. Deploy from the GitHub repo and select the `backend` folder as the service root.
+3. Recommended: deploy from the GitHub repo and select the `backend` folder as the service root.
 4. Add environment variables:
 
 ```env
@@ -120,7 +120,8 @@ The backend also accepts `FRONTEND_URL` as an alias for `CLIENT_URL`.
 
 The app allows `https://*.vercel.app` origins, so signup/login will still work if Vercel gives you a preview or generated production URL.
 
-5. Railway uses `npm start`, which runs `node server.js`. The included `backend/railway.json` also points Railway to that command.
+5. Railway uses `npm start`, which runs `node server.js` when the root directory is `backend`.
+   If Railway is accidentally pointed at the repo root, the root `package.json` now forwards `npm start` to `backend`.
 6. Your current Railway backend URL is:
 
 ```txt

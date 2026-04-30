@@ -4,6 +4,8 @@
   "private": true,
   "description": "Full-stack Team Task Manager with a Vite frontend and Express backend",
   "scripts": {
+    "start": "npm --prefix backend start",
+    "postinstall": "npm --prefix backend install",
     "build": "npm --prefix frontend run build",
     "frontend:install": "npm --prefix frontend install",
     "backend:install": "npm --prefix backend install"
