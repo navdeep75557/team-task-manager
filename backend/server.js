@@ -15,7 +15,8 @@ connectDB();
 
 const allowedOrigins = [
   process.env.CLIENT_URL,
-  process.env.FRONTEND_URL
+  process.env.FRONTEND_URL,
+  "https://team-task-manager-theta-liard.vercel.app"
 ].filter(Boolean);
 
 app.use(

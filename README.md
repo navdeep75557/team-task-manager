@@ -113,7 +113,7 @@ For deployed production, use the Railway and Vercel URLs shown below instead of 
 ```env
 MONGO_URI=your_production_mongodb_connection_string
 JWT_SECRET=your_production_secret
-CLIENT_URL=https://your-frontend-name.vercel.app
+CLIENT_URL=https://team-task-manager-theta-liard.vercel.app
 ```
 
 The backend also accepts `FRONTEND_URL` as an alias for `CLIENT_URL`.
@@ -138,10 +138,10 @@ VITE_API_URL=https://team-task-manager-production-0f44.up.railway.app/api
 ```
 
 4. Deploy.
-5. Update Railway `CLIENT_URL` with the final Vercel frontend URL, for example:
+5. Update Railway `CLIENT_URL` with the final Vercel frontend URL:
 
 ```env
-CLIENT_URL=https://your-frontend-name.vercel.app
+CLIENT_URL=https://team-task-manager-theta-liard.vercel.app
 ```
 
 The included `frontend/vercel.json` rewrites app routes to `index.html`, so refreshing `/projects/:id` works in production.
