@@ -48,6 +48,8 @@ JWT_SECRET=replace-with-a-long-random-secret
 CLIENT_URL=http://localhost:5173
 ```
 
+The backend also accepts `MONGO_URL` or `DATABASE_URL`, which is useful for Railway-provided MongoDB variables.
+
 3. Start the backend:
 
 ```bash
