@@ -135,7 +135,7 @@ https://team-task-manager-production-0f44.up.railway.app
 3. Add environment variable:
 
 ```env
-VITE_API_URL=https://team-task-manager-production-0f44.up.railway.app/api
+# No VITE_API_URL is required. The app calls /api and Vercel proxies it to Railway.
 ```
 
 4. Deploy.
@@ -146,6 +146,12 @@ CLIENT_URL=https://team-task-manager-theta-liard.vercel.app
 ```
 
 The included `frontend/vercel.json` rewrites app routes to `index.html`, so refreshing `/projects/:id` works in production.
+
+It also proxies frontend API calls:
+
+```txt
+Vercel /api/* -> https://team-task-manager-production-0f44.up.railway.app/api/*
+```
 
 If you accidentally deploy from the repo root, the root `vercel.json` also points Vercel to build `frontend` and serve `frontend/dist`.
 

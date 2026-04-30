@@ -1,9 +1,7 @@
 import axios from "axios";
 
-const railwayApiUrl = "https://team-task-manager-production-0f44.up.railway.app/api";
-
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || railwayApiUrl
+  baseURL: "/api"
 });
 
 api.interceptors.request.use((config) => {
