@@ -120,7 +120,7 @@ CLIENT_URL=https://your-vercel-app.vercel.app
 ## Vercel Deployment
 
 1. Import the same repo in Vercel.
-2. Set the root directory to `frontend`.
+2. Recommended: set the root directory to `frontend`.
 3. Add environment variable:
 
 ```env
@@ -131,6 +131,8 @@ VITE_API_URL=https://your-railway-backend.up.railway.app/api
 5. Update Railway `CLIENT_URL` with the final Vercel URL.
 
 The included `frontend/vercel.json` rewrites app routes to `index.html`, so refreshing `/projects/:id` works in production.
+
+If you accidentally deploy from the repo root, the root `vercel.json` also points Vercel to build `frontend` and serve `frontend/dist`.
 
 ## Demo Script
 

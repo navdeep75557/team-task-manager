@@ -1,0 +1,14 @@
+{
+  "name": "team-task-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack Team Task Manager with a Vite frontend and Express backend",
+  "scripts": {
+    "build": "npm --prefix frontend run build",
+    "frontend:install": "npm --prefix frontend install",
+    "backend:install": "npm --prefix backend install"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
