@@ -15,14 +15,15 @@ connectDB();
 
 const allowedOrigins = [
   process.env.CLIENT_URL,
-  "http://localhost:5173",
-  "http://localhost:4173"
+  process.env.FRONTEND_URL
 ].filter(Boolean);
 
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      const isAllowedVercelApp = /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin || "");
+
+      if (!origin || allowedOrigins.includes(origin) || isAllowedVercelApp) {
         callback(null, true);
         return;
       }

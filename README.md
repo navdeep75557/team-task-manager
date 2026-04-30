@@ -77,6 +77,8 @@ npm run dev
 
 Open `http://localhost:5173`.
 
+For deployed production, use the Railway and Vercel URLs shown below instead of localhost.
+
 ## API Routes
 
 ### Auth
@@ -111,11 +113,19 @@ Open `http://localhost:5173`.
 ```env
 MONGO_URI=your_production_mongodb_connection_string
 JWT_SECRET=your_production_secret
-CLIENT_URL=https://your-vercel-app.vercel.app
+CLIENT_URL=https://your-frontend-name.vercel.app
 ```
 
+The backend also accepts `FRONTEND_URL` as an alias for `CLIENT_URL`.
+
+The app allows `https://*.vercel.app` origins, so signup/login will still work if Vercel gives you a preview or generated production URL.
+
 5. Railway uses `npm start`, which runs `node server.js`. The included `backend/railway.json` also points Railway to that command.
-6. Copy the Railway backend URL after deploy.
+6. Your current Railway backend URL is:
+
+```txt
+https://team-task-manager-production-0f44.up.railway.app
+```
 
 ## Vercel Deployment
 
@@ -128,7 +138,11 @@ VITE_API_URL=https://team-task-manager-production-0f44.up.railway.app/api
 ```
 
 4. Deploy.
-5. Update Railway `CLIENT_URL` with the final Vercel URL.
+5. Update Railway `CLIENT_URL` with the final Vercel frontend URL, for example:
+
+```env
+CLIENT_URL=https://your-frontend-name.vercel.app
+```
 
 The included `frontend/vercel.json` rewrites app routes to `index.html`, so refreshing `/projects/:id` works in production.
 
