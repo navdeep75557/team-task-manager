@@ -112,9 +112,11 @@ For deployed production, use the Railway and Vercel URLs shown below instead of 
 
 ```env
 MONGO_URI=your_production_mongodb_connection_string
-JWT_SECRET=your_production_secret
+JWT_SECRET=use-a-long-random-secret-with-at-least-32-characters
 CLIENT_URL=https://team-task-manager-theta-liard.vercel.app
 ```
+
+`JWT_SECRET` is required. Without it, login/signup cannot generate tokens.
 
 The backend also accepts `FRONTEND_URL` as an alias for `CLIENT_URL`.
 
