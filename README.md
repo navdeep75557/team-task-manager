@@ -124,7 +124,7 @@ CLIENT_URL=https://your-vercel-app.vercel.app
 3. Add environment variable:
 
 ```env
-VITE_API_URL=https://your-railway-backend.up.railway.app/api
+VITE_API_URL=https://team-task-manager-production-0f44.up.railway.app/api
 ```
 
 4. Deploy.

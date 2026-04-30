@@ -30,7 +30,7 @@ const AuthForm = ({ mode, onSubmit }) => {
       if (err.response?.data?.message) {
         setError(err.response.data.message);
       } else if (err.request) {
-        setError("Cannot reach the backend API. Make sure the server is running on port 5000.");
+        setError("Cannot reach the backend API. Please check the Railway backend URL and CORS settings.");
       } else {
         setError("Something went wrong");
       }
