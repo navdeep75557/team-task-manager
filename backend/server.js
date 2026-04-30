@@ -19,20 +19,25 @@ const allowedOrigins = [
   "https://team-task-manager-theta-liard.vercel.app"
 ].filter(Boolean);
 
-app.use(
-  cors({
-    origin(origin, callback) {
-      const isAllowedVercelApp = /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin || "");
+const corsOptions = {
+  origin(origin, callback) {
+    const isAllowedVercelApp = /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin || "");
 
-      if (!origin || allowedOrigins.includes(origin) || isAllowedVercelApp) {
-        callback(null, true);
-        return;
-      }
-      callback(new Error("Not allowed by CORS"));
-    },
-    credentials: true
-  })
-);
+    if (!origin || allowedOrigins.includes(origin) || isAllowedVercelApp) {
+      callback(null, true);
+      return;
+    }
+
+    callback(new Error(`Not allowed by CORS: ${origin}`));
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+  optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json());
 
 app.get("/", (_req, res) => {
