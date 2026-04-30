@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
+import { getHealth } from "./controllers/healthController.js";
 
 dotenv.config();
 
@@ -43,6 +44,8 @@ app.use(express.json());
 app.get("/", (_req, res) => {
   res.json({ message: "Team Task Manager API is running" });
 });
+
+app.get("/api/health", getHealth);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
